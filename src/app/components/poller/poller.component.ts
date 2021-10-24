@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Poller} from '../../Poller';
 
 @Component({
   selector: 'app-poller',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poller.component.css']
 })
 export class PollerComponent implements OnInit {
+  @Input() poller: Poller;
 
   constructor() { }
 

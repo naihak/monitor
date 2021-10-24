@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Poller} from '../../Poller';
+import {POLLERS} from '../../mock-pollers';
 
 @Component({
   selector: 'app-pollers',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pollers.component.css']
 })
 export class PollersComponent implements OnInit {
+  pollers: Poller[] = POLLERS;
 
   constructor() { }
 
