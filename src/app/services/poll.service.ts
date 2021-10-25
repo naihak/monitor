@@ -12,6 +12,6 @@ export class PollService {
   constructor(private http: HttpClient) { }
 
   poll(url: string): Observable<any> {
-    return this.http.get(this.apiUrl + '/' + url);
+    return this.http.post(this.apiUrl, url);
   }
 }
