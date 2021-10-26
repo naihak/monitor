@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Poller } from '../../Poller';
 
 @Component({
   selector: 'app-add-poller',
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-poller.component.css']
 })
 export class AddPollerComponent implements OnInit {
+  @Output() addPoller: EventEmitter<Poller> = new EventEmitter<Poller>();
+
+  name: string;
+  url: string;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    if (this.name === '' || this.url === '' ) {
+      alert('Fields cannot be empty');
+      return;
+    }
+    const poller: Poller = {
+      name: this.name,
+      url: this.url
+    };
+
+    this.addPoller.emit(poller);
+
+    this.name = '';
+    this.url = '';
+  }
 }

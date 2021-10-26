@@ -1,1 +1,7 @@
-<p>add-poller works!</p>
+<form (ngSubmit)="onSubmit()">
+  <label for="name">Poller Name: </label><br/>
+  <input type="text" name="name" id="name" [(ngModel)]="name"/><br/>
+  <label for="name">Poller Url: </label><br/>
+  <input type="text" name="url" id="url" [(ngModel)]="url"/><br/>
+  <input type="submit" value="Create Poller"/>
+</form>
