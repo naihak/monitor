@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Poller } from '../../Poller';
-import { POLLERS } from '../../mock-pollers';
 import { PollerService } from '../../services/poller.service';
 
 @Component({
@@ -9,15 +8,24 @@ import { PollerService } from '../../services/poller.service';
   styleUrls: ['./pollers.component.css']
 })
 export class PollersComponent implements OnInit {
-  pollers: Poller[] = POLLERS;
+  pollers: Poller[];
 
   constructor( private pollerService: PollerService ) { }
 
   ngOnInit(): void {
+    this.fetchPollers();
+  }
+
+  fetchPollers(): void {
+    this.pollerService.getPollers().subscribe(
+      (pollers) => this.pollers = pollers
+    );
   }
 
   addPoller(poller: Poller): void {
-    this.pollerService.addPoller(poller).subscribe((newPoller) => console.log(newPoller));
+    this.pollerService.addPoller(poller).subscribe(
+      (newPoller) => this.pollers.push(newPoller)
+    );
   }
 
 }

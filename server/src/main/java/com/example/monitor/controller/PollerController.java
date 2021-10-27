@@ -6,14 +6,17 @@ import com.example.monitor.repository.PollerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Slf4j
 @RestController
-@RequestMapping("/poller")
+@RequestMapping("/pollers")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PollerController {
 
@@ -24,6 +27,11 @@ public class PollerController {
   public Poller postPoller(@RequestBody PutPollerDTO data) {
     Poller newPoller = new Poller(data);
     return pollerRepository.save(newPoller);
+  }
+
+  @GetMapping
+  public List<Poller> getPollers() {
+    return pollerRepository.findAll();
   }
 
 }
