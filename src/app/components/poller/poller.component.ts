@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Poller} from '../../Poller';
 import {PollService} from '../../services/poll.service';
 
@@ -9,6 +9,7 @@ import {PollService} from '../../services/poll.service';
 })
 export class PollerComponent implements OnInit {
   @Input() poller: Poller;
+  @Output() deleteItem: EventEmitter<Poller> = new EventEmitter<Poller>();
 
   status: string;
 
@@ -18,6 +19,10 @@ export class PollerComponent implements OnInit {
     this.pollService.poll(this.poller.url).subscribe(
       response => this.status = response ? 'OK' : 'FAIL'
     );
+  }
+
+  onDelete(): void {
+    this.deleteItem.emit(this.poller);
   }
 
 }

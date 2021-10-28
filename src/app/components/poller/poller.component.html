@@ -1,3 +1,4 @@
 <h3>{{ poller.name }}</h3>
 <p>Created {{ poller.creationDate | date : 'yyyy-MM-dd HH:mm' }}</p>
 <p>Status: {{ status }}</p>
+<button (click)="onDelete()">Delete</button>

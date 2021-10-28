@@ -22,6 +22,11 @@ export class PollerService {
     return this.http.post<Poller>(this.apiUrl, poller, httpOptions);
   }
 
+  deletePoller(poller: Poller): Observable<Poller> {
+    const url = `${this.apiUrl}/${poller.id}`;
+    return this.http.delete<Poller>(url);
+  }
+
   getPollers(): Observable<Poller[]> {
     return this.http.get<Poller[]>(this.apiUrl);
   }

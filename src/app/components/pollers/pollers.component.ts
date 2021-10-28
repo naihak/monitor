@@ -28,4 +28,15 @@ export class PollersComponent implements OnInit {
     );
   }
 
+  deletePoller(poller: Poller): void {
+    this.pollerService.deletePoller(poller).subscribe(
+      (deleted) => {
+        if (deleted !== null) {
+          this.pollers = this.pollers.filter(
+            p => p.id !== deleted.id
+          );
+        }
+      }
+    );
+  }
 }
