@@ -8,6 +8,7 @@ import { PollerComponent } from './components/poller/poller.component';
 import { PollersComponent } from './components/pollers/pollers.component';
 import { AddPollerComponent } from './components/add-poller/add-poller.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
