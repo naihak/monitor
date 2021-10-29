@@ -18,8 +18,7 @@ export class AddPollerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.name === '' || this.url === '' ) {
-      alert('Fields cannot be empty');
+    if (!document.querySelector('form').reportValidity()) {
       return;
     }
     const poller: Poller = {
