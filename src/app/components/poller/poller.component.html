@@ -1,5 +1,9 @@
-<h3>{{ poller.name }}</h3>
-<small>{{ poller.url }}</small>
-<p>Created {{ poller.creationDate | date : 'yyyy-MM-dd HH:mm' }}</p>
-<p>Status: {{ status }}</p>
-<button (click)="onDelete()">Delete</button>
+<mat-card>
+  <mat-card-title>{{ poller.name }}</mat-card-title>
+  <mat-card-subtitle>{{ poller.url }}</mat-card-subtitle>
+  <p>Created {{ poller.creationDate | date : 'yyyy-MM-dd HH:mm' }}</p>
+  <p>Status: {{ status }}</p>
+  <mat-card-actions>
+    <button mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,3 +1,9 @@
-<app-add-poller (addPoller)="addPoller($event)"></app-add-poller>
+<mat-grid-list cols="5">
+  <mat-grid-tile>
+    <app-add-poller (addPoller)="addPoller($event)"></app-add-poller>
+  </mat-grid-tile>
 
-<app-poller *ngFor="let poller of pollers" [poller]='poller' (deleteItem)="deletePoller(poller)"></app-poller>
+  <mat-grid-tile *ngFor="let poller of pollers">
+    <app-poller [poller]='poller' (deleteItem)="deletePoller(poller)"></app-poller>
+  </mat-grid-tile>
+</mat-grid-list>

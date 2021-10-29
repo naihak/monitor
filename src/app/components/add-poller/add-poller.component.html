@@ -1,15 +1,17 @@
-<form id="form" (ngSubmit)="onSubmit()">
-  <mat-form-field appearance="fill">
-    <mat-label for="name">Poller Name: </mat-label>
-    <input matInput type="text" name="name" id="name" [(ngModel)]="name" required/>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label for="name">Poller URL: </mat-label>
-    <input matInput type="text" name="url" id="url" [(ngModel)]="url"
-           required
-           pattern="https?:\/\/[-a-zA-Z0-9()@:%_\+.~#?&//=]+"
-           oninvalid="this.setCustomValidity('Please enter a properly formed URL')"
-           oninput="this.setCustomValidity('')"/>
-  </mat-form-field>
-  <button mat-flat-button color="primary" type="submit">Create Poller</button>
-</form>
+<mat-card>
+  <form id="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label for="name">Poller Name: </mat-label>
+      <input matInput type="text" name="name" id="name" [(ngModel)]="name" required/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label for="name">Poller URL: </mat-label>
+      <input matInput type="text" name="url" id="url" [(ngModel)]="url"
+             required
+             pattern="https?:\/\/[-a-zA-Z0-9()@:%_\+.~#?&//=]+"
+             oninvalid="this.setCustomValidity('Please enter a properly formed URL')"
+             oninput="this.setCustomValidity('')"/>
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">Create Poller</button>
+  </form>
+</mat-card>
