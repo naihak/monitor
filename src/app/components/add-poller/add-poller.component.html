@@ -7,7 +7,7 @@
     <mat-label for="name">Poller URL: </mat-label>
     <input matInput type="text" name="url" id="url" [(ngModel)]="url"
            required
-           pattern="https?:\/\/[-a-zA-Z0-9@:%._\+~#=]+\.[-a-zA-Z0-9()@:%_\+.~#?&//=]+"
+           pattern="https?:\/\/[-a-zA-Z0-9()@:%_\+.~#?&//=]+"
            oninvalid="this.setCustomValidity('Please enter a properly formed URL')"
            oninput="this.setCustomValidity('')"/>
   </mat-form-field>
