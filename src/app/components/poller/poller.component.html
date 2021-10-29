@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [class.fail]="status == 'FAIL'">
   <mat-card-title>{{ poller.name }}</mat-card-title>
   <mat-card-subtitle>{{ poller.url }}</mat-card-subtitle>
   <p>Created {{ poller.creationDate | date : 'yyyy-MM-dd HH:mm' }}</p>
