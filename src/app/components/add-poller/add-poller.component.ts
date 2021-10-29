@@ -18,7 +18,8 @@ export class AddPollerComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (!document.querySelector('form').reportValidity()) {
+    const form = document.querySelector('form');
+    if (!form.reportValidity()) {
       return;
     }
     const poller: Poller = {
@@ -28,7 +29,6 @@ export class AddPollerComponent implements OnInit {
 
     this.addPoller.emit(poller);
 
-    this.name = '';
-    this.url = '';
+    form.reset();
   }
 }
